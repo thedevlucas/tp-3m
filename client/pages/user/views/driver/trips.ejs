@@ -1,0 +1,72 @@
+<main>
+    <div class="head-title">
+        <div class="left">
+            <h1>Panel</h1>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="/user" class="active">Panel</a>
+                </li>
+                <li><i class='bx bx-chevron-right' ></i></li>
+                <li>
+                    <a href="/user/conductor/vehiculos" class="active">Vehiculos</a>
+                </li>
+                <li><i class='bx bx-chevron-right' ></i></li>
+                <li>
+                    <a href="#">Viajes</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="table-data">
+        <div class="order">
+            <div class="head">
+                <h3>Tu seguimiento como conductor</h3>
+            </div>
+            <div class="stepper-wrapper">
+                <div class="stepper-item completed active">
+                    <div class="step-counter"><i class='bx bx-check'></i></div>
+                    <div class="step-name">Salida</div>
+                </div>
+                <% for (let x of trips) { %>
+                    <div class="stepper-item" value="<%= x.id %>">
+                        <div class="step-counter"><i class='bx bx-check'></i></div>
+                        <div class="step-name"><%= x.address %></div>
+                    </div>
+                <% } %>
+                <div class="stepper-item">
+                    <div class="step-counter"><i class='bx bx-check'></i></div>
+                    <div class="step-name">Recorrido finalizado</div>
+                </div>
+            </div>
+            <div class="moreInfo">
+                <div class="details">
+                    <div>
+                        <h5>Detalles de la orden</h5>
+                        <p id="orderText">Esperando a iniciar el viaje</p>
+                    </div>
+                    <div>
+                        <h5>Comentario del de logistica</h5>
+                        <p id="comment">N/A</p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="detalles">
+                <form action="/user/conductor/vehiculos/check/"  method="post" id="form">
+                    <div class="inputs">
+                        <div class="input" id="inputs">
+                            <h5>Codigo de seguridad</h5>
+                            <input type="text" name="code" id="code" required>
+                        </div>
+                        <button id="button">CONFIRMAR</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+    let trips = JSON.parse('<%- JSON.stringify(trips) %>');
+</script>
+<script src="<%= getFile('user/js/orderHandler.js') %>"></script>
+<script src="<%= getFile('user/js/driver/trips.js') %>"></script>

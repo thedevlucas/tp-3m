@@ -1,0 +1,83 @@
+<main>
+    <div class="head-title">
+        <div class="left">
+            <h1>Panel</h1>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="/user" class="active" >Panel</a>
+                </li>
+                <li><i class='bx bx-chevron-right' ></i></li>
+                <li>
+                    <a href="#">Pedidos</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="table-data">
+        <div class="order">
+            <div class="head">
+                <h3>Todos sus pedidos</h3>
+                <!-- <form action="#">
+                    <div class="form-input">
+                        <input type="search" placeholder="Buscar...">
+                        <button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+                    </div>
+                </form>
+                <i class='bx bx-filter' ></i> -->
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tienda</th>
+                        <th>Order</th>
+                        <th>Fecha de orden</th>
+                        <th>Estado</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="items">
+                    <!-- <tr>
+                        <td></td>
+                        <td>01-10-2021</td>
+                        <td><span class="status completado">Completed</span></td>
+                        <td><i class='bx bx-edit' ></i></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>John Doe</p>
+                        </td>
+                        <td>01-10-2021</td>
+        
+                        <td><span class="status cancelado">Cancelado</span><button><i class='bx bx-edit' ></i></button></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>John Doe</p>
+                        </td>
+                        <td>01-10-2021</td>
+                        <td><span class="status devuelto">Devuelto</span><button><i class='bx bx-edit' ></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>John Doe</p>
+                        </td>
+                        <td>01-10-2021</td>
+                        <td><span class="status proceso">En viaje</span><button><i class='bx bx-edit' ></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>John Doe</p>
+                        </td>
+                        <td>01-10-2021</td>
+                        <td><span class="status pendiente">Pendiente</span><button><i class='bx bx-edit' ></i></button></td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+<script>
+    let orders = JSON.parse('<%- JSON.stringify(orders) %>');
+</script>
+<script src="<%= getFile('user/js/pallete/orders.js') %>"></script>

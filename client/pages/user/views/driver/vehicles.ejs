@@ -1,0 +1,80 @@
+<main>
+    <div class="head-title">
+        <div class="left">
+            <h1>Panel</h1>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="/user" class="active" >Panel</a>
+                </li>
+                <li><i class='bx bx-chevron-right' ></i></li>
+                <li>
+                    <a href="#">Vehiculos</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="table-data">
+        <div class="order">
+            <div class="head">
+                <h3>Todos los vehiculos</h3>
+                <!-- <form action="#">
+                    <div class="form-input">
+                        <input type="search" placeholder="Buscar...">
+                        <button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+                    </div>
+                </form>
+                <i class='bx bx-filter' ></i> -->
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Patente</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="items">
+                    <!-- <tr>
+                        <td></td>
+                        <td>01-10-2021</td>
+                        <td><span class="status completado">Completed</span></td>
+                        <td><i class='bx bx-edit' ></i></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>John Doe</p>
+                        </td>
+                        <td>01-10-2021</td>
+        
+                        <td><span class="status cancelado">Cancelado</span><button><i class='bx bx-edit' ></i></button></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>John Doe</p>
+                        </td>
+                        <td>01-10-2021</td>
+                        <td><span class="status devuelto">Devuelto</span><button><i class='bx bx-edit' ></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>John Doe</p>
+                        </td>
+                        <td>01-10-2021</td>
+                        <td><span class="status proceso">En viaje</span><button><i class='bx bx-edit' ></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>John Doe</p>
+                        </td>
+                        <td>01-10-2021</td>
+                        <td><span class="status pendiente">Pendiente</span><button><i class='bx bx-edit' ></i></button></td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+<script>
+    let vehicles = JSON.parse('<%- JSON.stringify(vehicles) %>');
+</script>
+<script src="<%= getFile('user/js/driver/vehicles.js') %>"></script>

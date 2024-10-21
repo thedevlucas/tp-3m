@@ -1,0 +1,31 @@
+<main>
+    <div class="head-title">
+        <div class="left">
+            <h1>Panel</h1>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">Panel</a>
+                </li>
+                <li><i class='bx bx-chevron-right' ></i></li>
+                <li>
+                    <a class="active" href="#">Crear vehículo</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <form method="post" action="/admin/create" class="register userTypes" id="form">
+
+        <hr><br>
+
+        <div class="input">
+            <h5>Patente</h5>
+            <input type="text" name="username" id="username" required>
+        </div>
+        <div id="customInputs"></div>
+
+        <hr><br>
+        
+        <button>Registrar</button>
+    </form>
+</main>
+<script src="<%= getFile('admin/js/create.js') %>"></script>

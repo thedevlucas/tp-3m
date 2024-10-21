@@ -1,0 +1,69 @@
+<main>
+    <div class="head-title">
+        <div class="left">
+            <h1>Panel</h1>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">Panel</a>
+                </li>
+                <li><i class='bx bx-chevron-right' ></i></li>
+                <li>
+                    <a class="active" href="#">Tipo de usuario</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <form method="post" action="/admin/create" class="register userTypes" id="form">
+        <h2>Seleccione el tipo de usuario</h2>
+        
+        <div>
+            <label for="type1">Cliente</label>
+            <input type="radio" name="type" id="type1" value="cliente" required>
+        </div>
+        <div>
+            <label for="type2">Conductor</label>
+            <input type="radio" name="type" id="type2" value="conductor" required>
+        </div>
+        <div>
+            <label for="type3">Logística</label>
+            <input type="radio" name="type" id="type3" value="logistica" required>
+        </div>
+        <div>
+            <label for="type4">Paletizador</label>
+            <input type="radio" name="type" id="type4" value="paletizador" required>
+        </div>
+
+        <hr><br>
+
+        <div class="input">
+            <h5>Username</h5>
+            <input type="text" name="username" id="username" required>
+        </div>
+        <div class="input">
+            <h5>Password</h5>
+            <input type="text" name="password" id="password" required>
+        </div>
+
+        <hr><br>
+
+        <div class="input">
+            <h5>Nombre</h5>
+            <input type="text" name="name" id="name" required>
+        </div>
+        <div class="input">
+            <h5>Apellido</h5>
+            <input type="text" name="lastname" id="lastname" required>
+        </div>
+        <div class="input">
+            <h5>Telefono</h5>
+            <input type="text" name="phone" id="phone" required>
+        </div>
+
+        <div id="customInputs"></div>
+
+        <hr><br>
+        
+        <button>Registrar</button>
+    </form>
+</main>
+<script src="<%= getFile('admin/js/create.js') %>"></script>

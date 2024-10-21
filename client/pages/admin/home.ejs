@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="<%= getFile('admin/css/style.css') %>">
+	<link rel="stylesheet" href="<%= getFile('admin/css/progress.css') %>">
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<title>Admin Panel</title>
+	<script src="<%= getFile('user/js/functions.js') %>"></script>
+</head>
+<body>
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<span class="text">FABRICA GALLETITAS</span>
+		</a>
+		<ul class="side-menu top">
+			<li>
+				<a href="/admin">
+					<i class='bx bxs-dashboard' ></i>
+					<span class="text">Panel</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin/create">
+					<i class='bx bx-plus' ></i>
+					<span class="text">Crear usuario</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin/vehicles/create">
+					<i class='bx bx-car'></i>
+					<span class="text">Crear vehículos</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin/pedidos">
+					<i class='bx bx-store-alt'></i>
+					<span class="text">Gestionar pedidos</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin/users">
+					<i class='bx bxs-user-account'></i>
+					<span class="text">Gestionar usuarios</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin/vehicles">
+					<i class='bx bxs-car-mechanic' ></i>
+					<span class="text">Gestionar vehículos</span>
+				</a>
+			</li>
+		</ul>
+		<ul class="side-menu">
+			<li>
+				<a href="/api/logout" class="logout">
+					<i class='bx bxs-log-out-circle' ></i>
+					<span class="text">Cerrar Sesion</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<section id="content">
+		<nav>
+			<i class='bx bx-menu' ></i>
+			<!-- <form action="#">
+				<div class="form-input">
+					<input type="search" placeholder="Buscar...">
+					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+				</div>
+			</form> -->
+		</nav>
+
+		<% if (typeof content != "undefined") { %>
+			<%- include('views/'+ content) %>
+		<% } %>
+	</section>
+
+	<% if (typeof alert != "undefined") { %>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            Swal.fire({
+                title: "<%= alert.title %>",
+                text: "<%= alert.message %>",
+                icon: "<%= alert.icon %>",
+                showConfirmButton: "<%= alert.showConfirmButton %>",
+                confirmButtonColor: "#28a745",
+                timer: "<%= alert.time %>",
+            }).then(() => {
+                window.location = "/<%= alert.ruta %>"
+            })
+        </script>
+    <% } %>
+	<script src="<%= getFile('user/js/dashboard.js') %>"></script>
+</body>
+</html>

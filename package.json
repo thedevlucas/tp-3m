@@ -1,0 +1,36 @@
+{
+  "name": "trading",
+  "version": "1.0.0",
+  "description": "trading page for school proyect",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thedevlucas/test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thedevlucas/test/issues"
+  },
+  "homepage": "https://github.com/thedevlucas/test#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "express-useragent": "^1.0.15",
+    "jsonwebtoken": "^9.0.2",
+    "mercadopago": "^2.0.14",
+    "moment": "^2.30.1",
+    "moment-timezone": "^0.5.45",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.10.2",
+    "path": "^0.12.7"
+  }
+}
