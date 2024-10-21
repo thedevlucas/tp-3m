@@ -29,10 +29,9 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Usuario</th>
-                        <th>Group</th>
+                        <th>Número sucursal</th>
+                        <th>Localidad</th>
+                        <th>Teléfono</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -43,7 +42,6 @@
                             <td><%- x.name  %></td>
                             <td><%- x.lastname  %></td>
                             <td><%- x.username  %></td>
-                            <td><span class="status completado"><%- x.group  %></span></td>
                             <td><a href="/admin/view/<%- x.id  %>"><i class='bx bx-trash' ></i></a></td>
                         </tr>
                     <% } %>

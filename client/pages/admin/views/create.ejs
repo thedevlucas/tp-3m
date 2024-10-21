@@ -14,26 +14,8 @@
         </div>
     </div>
     <form method="post" action="/admin/create" class="register userTypes" id="form">
-        <h2>Seleccione el tipo de usuario</h2>
-        
-        <div>
-            <label for="type1">Cliente</label>
-            <input type="radio" name="type" id="type1" value="cliente" required>
-        </div>
-        <div>
-            <label for="type2">Conductor</label>
-            <input type="radio" name="type" id="type2" value="conductor" required>
-        </div>
-        <div>
-            <label for="type3">Logística</label>
-            <input type="radio" name="type" id="type3" value="logistica" required>
-        </div>
-        <div>
-            <label for="type4">Paletizador</label>
-            <input type="radio" name="type" id="type4" value="paletizador" required>
-        </div>
-
-        <hr><br>
+        <h2>Ingrese los datos del usuario a crear</h2>
+        <br>
 
         <div class="input">
             <h5>Username</h5>
@@ -47,11 +29,11 @@
         <hr><br>
 
         <div class="input">
-            <h5>Nombre</h5>
+            <h5>Número Sucursal</h5>
             <input type="text" name="name" id="name" required>
         </div>
         <div class="input">
-            <h5>Apellido</h5>
+            <h5>Localidad</h5>
             <input type="text" name="lastname" id="lastname" required>
         </div>
         <div class="input">
@@ -63,7 +45,7 @@
 
         <hr><br>
         
-        <button>Registrar</button>
+        <button class="createBtn">Registrar</button>
     </form>
 </main>
 <script src="<%= getFile('admin/js/create.js') %>"></script>

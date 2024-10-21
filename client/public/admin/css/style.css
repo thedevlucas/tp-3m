@@ -348,6 +348,28 @@ body {
 	pointer-events: unset;
 }
 
+
+main form .inputs .input img {
+	width: 100px;
+	height: 250px;
+}
+main form .inputs .input h3 {
+	margin-left: 25px;
+	font-weight: 500;
+}
+
+main form .inputs {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-rows: auto;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+main form .inputs .input .buttons {
+	margin-left: 25px;
+}
+
 #content main .box-info {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -534,7 +556,7 @@ main .register input, main .register select {
 	width: 250px;
 }
 
-main .register button {
+main .register .createBtn {
 	padding: 5px 75px;
 	margin-bottom: 2%;
 	width: 250px;
