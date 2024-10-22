@@ -8,14 +8,24 @@ module.exports = (router, database) =>
 {
     const usedTokens = new Set();
 
-    router.get('/inventory', async (req, res) => {
-        const user = auth.getUser(functions.getCookie(req, 'token'));
-        if (user.group != 'admin') return res.status(404);
+    router.get('/products', async (req, res) => {
+        const params = req.params;
+        if (params.id == undefined) return res.status(404);
+        
+        const con = mysql.createConnection(database);
+        
+        try {
+            const [results] = await con.promise().query('SELECT o.id, s.name, s.address, o.order, o.status FROM orders o JOIN stores s ON s.id = o.store WHERE o.id = ?', [params.id]);
 
-        req.session.token = uuidv4();
-        res.render('admin/home', { content: "inventory" });
+            req.session.token = uuidv4();
+            res.render('admin/home', { content: "products", products: results });
+        } catch (error) {
+            console.error(error);
+        } finally {
+            con.end();
+        }
     });
-    router.post('/inventory', async (req, res) => {
+    router.post('/products', async (req, res) => {
         if (!req.session.token || usedTokens.has(req.session.token)) {
             return res.render('admin/home', { 
                 alert: {

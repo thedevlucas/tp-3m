@@ -4,46 +4,48 @@
             <h1>Panel</h1>
             <ul class="breadcrumb">
                 <li>
-                    <a href="#">Panel</a>
+                    <a href="/admin" class="active">Panel</a>
                 </li>
                 <li><i class='bx bx-chevron-right' ></i></li>
                 <li>
-                    <a class="active" href="#">Crear producto</a>
+                    <a href="#">Crear producto</a>
                 </li>
             </ul>
         </div>
     </div>
-    <form method="post" action="/admin/create" class="register userTypes" id="form">
+    <form method="post" action="/admin/products/create" class="register userTypes" id="form">
         <h2>Ingrese los datos del item a crear</h2>
         <br>
-
 
         <div class="input">
             <h5>Nombre</h5>
             <input type="text" name="name" id="name" required>
         </div>
         <div class="input">
+            <h5>Cantidad actual</h5>
+            <input type="number" name="quantity" id="quantity" required>
+        </div>
+        <div class="input">
             <h5>Cantidad mínima</h5>
-            <input type="text" name="lastname" id="lastname" required>
+            <input type="number" name="min" id="min" required>
         </div>
         <div class="input">
             <h5>Cantidad máxima</h5>
-            <input type="text" name="phone" id="phone" required>
+            <input type="number" name="max" id="max" required>
         </div>
         <div class="input">
             <h5>Descripción</h5>
-            <textarea name="order" id="order" cols="100" rows="10" required></textarea>
+            <textarea name="description" id="description" cols="100" rows="10" required></textarea>
         </div>
         <div class="input">
             <h5>Imágen</h5>
-            <input type="file" name="image" id="">
+            <input type="file" name="image" id="image" accept="image/png, image/gif, image/jpeg">
         </div>
-
-        <div id="customInputs"></div>
+        <input type="text" name="img" id="img" style="display: none;">
 
         <hr><br>
         
         <button class="createBtn">Registrar</button>
     </form>
 </main>
-<script src="<%= getFile('admin/js/create.js') %>"></script>
+<script src="<%= getFile('admin/js/products-create.js') %>"></script>

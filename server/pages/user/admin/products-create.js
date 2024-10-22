@@ -8,14 +8,11 @@ module.exports = (router, database) =>
 {
     const usedTokens = new Set();
 
-    router.get('/item/create', async (req, res) => {
-        const user = auth.getUser(functions.getCookie(req, 'token'));
-        if (user.group != 'admin') return res.status(404);
-
+    router.get('/products/create', async (req, res) => {
         req.session.token = uuidv4();
-        res.render('admin/home', { content: "item-create" });
+        res.render('admin/home', { content: "products-create" });
     });
-    router.post('/item/create', async (req, res) => {
+    router.post('/products/create', async (req, res) => {
         if (!req.session.token || usedTokens.has(req.session.token)) {
             return res.render('admin/home', { 
                 alert: {
@@ -23,7 +20,7 @@ module.exports = (router, database) =>
                     message: 'Invalid session token',
                     icon: 'error',
                     time: 5000,
-                    ruta: 'admin/item/create'
+                    ruta: 'admin/products/create'
                 }
             });
         } else { usedTokens.add(req.session.token); }
@@ -33,17 +30,16 @@ module.exports = (router, database) =>
         const body = req.body
 
         try {
-            const code = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
             const [results_select] = await con.promise().query('SELECT id FROM stores WHERE user = ?', [user.id]);
-            const [results_insert] = await con.promise().query('INSERT INTO orders SET ?', {store: results_select[0].id, order: body.order, code: code});
+            const [results_insert] = await con.promise().query('INSERT INTO products SET ?', {store: results_select[0].id, name: body.name, quantity: body.quantity, min: body.min, max: body.max, description: body.description, img: body.img});
 
             res.render('admin/home', { 
                 alert: {
                     title: 'Success',
-                    message: 'Pedido creado exitosamente',
+                    message: 'Producto creado exitosamente',
                     icon: 'success',
                     time: 5000,
-                    ruta: 'admin/item/' + results_insert.insertId 
+                    ruta: 'admin/products'
                 }
             });
         } catch (error) {
@@ -55,7 +51,7 @@ module.exports = (router, database) =>
                     message: 'Server error',
                     icon: 'error',
                     time: 5000,
-                    ruta: 'admin/item/create'
+                    ruta: 'admin/products/create'
                 }
             });
         } finally {

@@ -18,8 +18,8 @@ app.set('views', path.join(__dirname, 'client/pages'));
 app.set('view engine', 'ejs');
 
 // middlewares
-app.use(bp.json())
-app.use(bp.urlencoded({ extended: true }))
+app.use(bp.json({ limit: '10mb' }));
+app.use(bp.urlencoded({ extended: true, limit: '10mb' }));
 app.use(session({
     secret: config.auth.secret,
     resave: false,

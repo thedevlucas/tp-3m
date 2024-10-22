@@ -6,7 +6,7 @@
         "host": "localhost",
         "user": "root",
         "pass": "",
-        "db": "fabrica-galletitas"
+        "db": "3m"
     },
     "auth": {
         "secret": "a9915c1f-788f-4b99-bad5-91080258006d"

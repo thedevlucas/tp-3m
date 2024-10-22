@@ -4,9 +4,10 @@ const functions = require('../../../functions/functions');
 module.exports = (router, database) => 
 {
     router.get('/', async (req, res) => {
-        if (auth.isAuthenticated(functions.getCookie(req, "token"))) return res.redirect(`/user`);
-        const result = await auth.login(req, res, {token: functions.getCookie(req, "token")});
-        if (result.status) return res.redirect(auth.isAllowed(result.group, 'admin') ? '/admin' : '/user');
+        const token = functions.getCookie(req, "token")
+        if (auth.isAuthenticated(token)) return res.redirect(auth.isAllowed(auth.getUser(token).group, 'admin') ? '/admin' : '/user');
+        const result = await auth.login(req, res, {token: token});
+        if (result.status) return res.redirect(auth.isAllowed(result.data.group, 'admin') ? '/admin' : '/user');
 
         res.render('global/home', {});
     });

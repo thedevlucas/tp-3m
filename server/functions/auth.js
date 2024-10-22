@@ -15,10 +15,6 @@ const database = {
 //Groups
 const groups = [
     'admin',
-    'cliente',
-    'conductor',
-    'logistica',
-    'paletizador',
     'user'
 ];
 

@@ -9,9 +9,6 @@ module.exports = (router, database) =>
     const usedTokens = new Set();
 
     router.get('/pedidos/create', async (req, res) => {
-        const user = auth.getUser(functions.getCookie(req, 'token'));
-        if (user.group != 'admin') return res.status(404);
-
         req.session.token = uuidv4();
         res.render('admin/home', { content: "pedidos-create" });
     });
