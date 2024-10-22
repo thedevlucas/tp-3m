@@ -5,7 +5,7 @@
     "db": {
         "host": "localhost",
         "user": "root",
-        "pass": "",
+        "pass": "admin",
         "db": "3m"
     },
     "auth": {

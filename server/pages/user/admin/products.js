@@ -9,13 +9,10 @@ module.exports = (router, database) =>
     const usedTokens = new Set();
 
     router.get('/products', async (req, res) => {
-        const params = req.params;
-        if (params.id == undefined) return res.status(404);
-        
         const con = mysql.createConnection(database);
         
         try {
-            const [results] = await con.promise().query('SELECT o.id, s.name, s.address, o.order, o.status FROM orders o JOIN stores s ON s.id = o.store WHERE o.id = ?', [params.id]);
+            const [results] = await con.promise().query('SELECT p.id, p.name, p.quantity, p.description, p.img FROM products p JOIN stores s ON s.id = p.store');
 
             req.session.token = uuidv4();
             res.render('admin/home', { content: "products", products: results });

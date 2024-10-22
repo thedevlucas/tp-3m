@@ -348,31 +348,22 @@ body {
 	pointer-events: unset;
 }
 
+main form .inputs .input {
+	/* background-color: #3C91E6; */
+	text-align: center;
+}
 
 main form .inputs .input img {
 	width: 100px;
-	height: 250px;
-}
-main form .inputs .input h3 {
-	margin-left: 25px;
-	font-weight: 500;
-}
-
-main form .inputs .input small {
-	margin-left: 39px;
 }
 
 main form .inputs {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-template-rows: auto;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
 }
 
-main form .inputs .input .buttons {
-	margin-left: 25px;
-}
 
 #content main .box-info {
 	display: grid;
