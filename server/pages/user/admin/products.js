@@ -22,7 +22,7 @@ module.exports = (router, database) =>
             con.end();
         }
     });
-    router.post('/products', async (req, res) => {
+    router.post('/products/update', async (req, res) => {
         if (!req.session.token || usedTokens.has(req.session.token)) {
             return res.render('admin/home', { 
                 alert: {
@@ -30,27 +30,24 @@ module.exports = (router, database) =>
                     message: 'Invalid session token',
                     icon: 'error',
                     time: 5000,
-                    ruta: 'admin/inventory'
+                    ruta: 'admin/products'
                 }
             });
         } else { usedTokens.add(req.session.token); }
 
-        const user = auth.getUser(functions.getCookie(req, 'token'));
         const con = mysql.createConnection(database);
         const body = req.body
-
+   
         try {
-            const code = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
-            const [results_select] = await con.promise().query('SELECT id FROM stores WHERE user = ?', [user.id]);
-            const [results_insert] = await con.promise().query('INSERT INTO orders SET ?', {store: results_select[0].id, order: body.order, code: code});
+            const [results_update] = await con.promise().query(`UPDATE products SET quantity = CASE ? END WHERE id IN (?)`, [body.id.map((id, index) => `WHEN id = ${con.escape(id)} THEN ${con.escape(body.quantity[index])}`).join(' '), body.id.map(id => con.escape(id)).join(',')]);
 
             res.render('admin/home', { 
                 alert: {
                     title: 'Success',
-                    message: 'Pedido creado exitosamente',
+                    message: 'Productos actualizados exitosamente',
                     icon: 'success',
                     time: 5000,
-                    ruta: 'admin/inventory/' + results_insert.insertId 
+                    ruta: 'admin/products'
                 }
             });
         } catch (error) {
@@ -62,7 +59,40 @@ module.exports = (router, database) =>
                     message: 'Server error',
                     icon: 'error',
                     time: 5000,
-                    ruta: 'admin/inventory'
+                    ruta: 'admin/products'
+                }
+            });
+        } finally {
+            con.end();
+        }
+    });
+    router.get('/products/delete/:id', async (req, res) => {
+        const params = req.params;
+        if (params.id == undefined) return res.status(404);
+
+        const con = mysql.createConnection(database);
+        
+        try {
+            const [results] = await con.promise().query('DELETE FROM products WHERE id = ?', [params.id]);
+
+            res.render('admin/home', { 
+                alert: {
+                    title: 'Success',
+                    message: 'Producto eliminado exitosamente',
+                    icon: 'success',
+                    time: 5000,
+                    ruta: 'admin/products'
+                }
+            });
+        } catch (error) {
+            console.error(error);
+            res.render('admin/home', { 
+                alert: {
+                    title: 'Error',
+                    message: 'Server error',
+                    icon: 'error',
+                    time: 5000,
+                    ruta: 'admin/products'
                 }
             });
         } finally {

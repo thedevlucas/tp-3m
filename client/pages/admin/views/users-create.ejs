@@ -8,12 +8,12 @@
                 </li>
                 <li><i class='bx bx-chevron-right' ></i></li>
                 <li>
-                    <a class="active" href="#">Tipo de usuario</a>
+                    <a class="active" href="#">Crear Sucursal</a>
                 </li>
             </ul>
         </div>
     </div>
-    <form method="post" action="/admin/create" class="register userTypes" id="form">
+    <form method="post" action="/admin/users/create" class="register userTypes" id="form">
         <h2>Ingrese los datos del usuario a crear</h2>
         <br>
 
@@ -29,19 +29,9 @@
         <hr><br>
 
         <div class="input">
-            <h5>Número Sucursal</h5>
-            <input type="text" name="name" id="name" required>
+            <h5>Direccion de sucursal</h5>
+            <input type="text" name="address" id="address" required>
         </div>
-        <div class="input">
-            <h5>Localidad</h5>
-            <input type="text" name="lastname" id="lastname" required>
-        </div>
-        <div class="input">
-            <h5>Telefono</h5>
-            <input type="text" name="phone" id="phone" required>
-        </div>
-
-        <div id="customInputs"></div>
 
         <hr><br>
         

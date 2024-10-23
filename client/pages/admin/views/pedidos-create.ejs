@@ -13,9 +13,23 @@
             </ul>
         </div>
     </div>
-    <form method="post" action="/admin/pedidos/create" class="register">
+    <form method="post" action="/admin/pedidos/create" class="register" id="form">
         <div class="inputs">
-            <div class="input">
+            <% for (let x of products) { %>
+                <div class="input">
+                    <img src="<%= x.img %>" alt="">
+                    <h3><%= x.name %></h3>
+                    <small><%= x.quantity %></small>
+                    <div class="buttons">
+                        <button class="decrease">-</button>
+                        <span class="quantity">0</span>
+                        <input type="number" class="id-input" style="display: none;" name="id[]" value="<%= x.id %>" disabled>
+                        <input type="number" class="quantity-input" style="display: none;" name="quantity[]" value="0" disabled>
+                        <button class="increase">+</button>
+                    </div>
+                </div>
+            <% } %>
+            <!-- <div class="input">
                 <img src="<%= getFile('images/voligoma.png') %>" alt="">
                 <h3>asd</h3>
                 <small>0</small>
@@ -24,9 +38,10 @@
                     <span>0</span>
                     <button>+</button>
                 </div>
-            </div>
+            </div> -->
             <br>
         </div>
         <button class="createBtn">Crear pedido</button>
     </form>
 </main>
+<script src="<%= getFile('admin/js/pedidos-create.js') %>"></script>

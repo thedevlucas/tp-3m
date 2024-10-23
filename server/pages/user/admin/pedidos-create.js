@@ -9,8 +9,18 @@ module.exports = (router, database) =>
     const usedTokens = new Set();
 
     router.get('/pedidos/create', async (req, res) => {
-        req.session.token = uuidv4();
-        res.render('admin/home', { content: "pedidos-create" });
+        const con = mysql.createConnection(database);
+        
+        try {
+            const [results] = await con.promise().query('SELECT p.id, p.name, p.quantity, p.description, p.img FROM products p JOIN stores s ON s.id = p.store');
+
+            req.session.token = uuidv4();
+            res.render('admin/home', { content: "pedidos-create", products: results });
+        } catch (error) {
+            console.error(error);
+        } finally {
+            con.end();
+        }
     });
     router.post('/pedidos/create', async (req, res) => {
         if (!req.session.token || usedTokens.has(req.session.token)) {
