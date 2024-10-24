@@ -4,13 +4,3 @@ Object.defineProperty(String.prototype, 'capitalize', {
     },
     enumerable: false
 });
-
-const statusList = {
-    0: "pendiente",
-    1: "despacho",
-    2: "proceso",
-    3: "viaje",
-    4: "completado",
-    5: "cancelado",
-    6: "devuelto"
-}

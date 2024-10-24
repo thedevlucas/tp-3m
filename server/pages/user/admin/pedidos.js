@@ -6,7 +6,7 @@ module.exports = (router, database) =>
         const con = mysql.createConnection(database);
         
         try {
-            const [results] = await con.promise().query('SELECT o.id, s.name, o.order, o.date, o.status FROM orders o JOIN stores s ON s.id = o.store');
+            const [results] = await con.promise().query('SELECT o.id, p.name, o.quantity, o.date, o.status FROM orders o JOIN products p ON p.id = o.product');
 
             res.render('admin/home', { content: "pedidos", orders: results });
         } catch (error) {

@@ -49,7 +49,7 @@ module.exports = (router, database) =>
                     message: 'Pedido creado exitosamente',
                     icon: 'success',
                     time: 5000,
-                    ruta: 'admin/pedidos/' + results_insert.insertId 
+                    ruta: 'admin/pedidos/view/' + results_insert.insertId 
                 }
             });
         } catch (error) {

@@ -27,10 +27,6 @@
                   <div class="step-counter"><i class='bx bx-check'></i></div>
                   <div class="step-name">En preparación</div>
                 </div>
-                <div class="stepper-item" value="">
-                  <div class="step-counter"><i class='bx bx-check'></i></div>
-                  <div class="step-name">Despacho</div>
-                </div>
                 <div class="stepper-item">
                   <div class="step-counter"><i class='bx bx-check'></i></div>
                   <div class="step-name">En camino</div>
@@ -44,37 +40,32 @@
                 
                 <div class="details">
                     <div>
-                        <h5>Nombre del local</h5>
+                        <h5>Producto</h5>
                         <span><%= order.name %></span>
                     </div>
                     <div>
-                        <h5>Dirección del local</h5>
-                        <span><%= order.address %></span>
+                        <h5>Cantidad</h5>
+                        <span><%= order.quantity %></span>
                     </div>
                     <div>
-                        <h5>Detalles de la orden</h5>
-                        <p><%= order.order %></p>
+                        <h5>Description</h5>
+                        <p><%= order.description %></p>
+                    </div>
+                    <div>
+                        <h5>img</h5>
+                        <img src="<%= order.img %>" alt="" width="100px">
                     </div>
                 </div>
                 
             </div>
-            <div class="detalles">
-                <h5>Detalles del pedido</h5>
-                <ul id="logsList">
-                    <li><small>15 jul 15:00 | El pedido esta en preparación</small></li>
-                    <li><small>15 jul 15:00 | El pedido esta siendo paletizado</small></li>
-                    <li><small>15 jul 15:00 | El pedido esta siendo checkeado</small></li>
-                    <li><small>15 jul 15:00 | El pedido esta siendo cargado</small></li>
-                    <li><small>15 jul 15:00 | El pedido esta en camino</small></li>
-                    <li><small>15 jul 15:00 | El pedido fue entregado con éxito</small></li>
-                    <li><small>15 jul 15:00 | El pedido fue demorado</small></li>
-                </ul>
-            </div>
+            <form action="/admin/pedidos/check/<%= order.id %>" method="post" id="form">
+                <button class="createBtn">Confirmar Envio</button>
+            </form>
         </div>
     </div>
 </main>
 <script>
     let order = JSON.parse('<%- JSON.stringify(order) %>');
 </script>
-<script src="<%= getFile('admin/js/orderHandler.js') %>"></script>
+<script src="<%= getFile('user/js/orderHandler.js') %>"></script>
 <script src="<%= getFile('admin/js/order.js') %>"></script>

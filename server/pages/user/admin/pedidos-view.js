@@ -15,7 +15,7 @@ module.exports = (router, database) =>
         const con = mysql.createConnection(database);
         
         try {
-            const [results] = await con.promise().query('SELECT o.id, s.name, s.address, o.order, o.status FROM orders o JOIN stores s ON s.id = o.store WHERE o.id = ?', [params.id]);
+            const [results] = await con.promise().query('SELECT o.id, p.name, o.quantity, p.description, p.img, o.status FROM orders o JOIN stores s ON s.id = o.store JOIN products p ON p.id = o.product WHERE o.id = ?', [params.id]);
 
             req.session.token = uuidv4();
             res.render('admin/home', { content: "pedidos-view", order: results[0] });

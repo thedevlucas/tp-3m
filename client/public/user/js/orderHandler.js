@@ -1,3 +1,9 @@
+const statusList = {
+    0: "pendiente",
+    1: "viaje",
+    2: "completado",
+}
+
 const steps = document.querySelectorAll(".stepper-item");
 
 function setStep(currentStep) {

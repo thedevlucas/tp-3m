@@ -496,6 +496,12 @@ main form .inputs {
 #content main .table-data .order table tr td .status.devuelto {
 	background: var(--dark);
 }
+#content main .table-data .order table tr td .status.despacho {
+	background: #ffaf03;
+}
+#content main .table-data .order table tr td .status.viaje {
+	background: #08c5bc;
+}
 
 #content main .table-data .order table tr td button {
 	border: none;
@@ -654,5 +660,5 @@ main .table-data .order .moreInfo .details div{
 	margin-right: 5%;
 	margin-top: 5%;
 	margin-bottom: 2%;
-	
+	width: 100%;
 }
