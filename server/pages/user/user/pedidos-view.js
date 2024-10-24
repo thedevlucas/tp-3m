@@ -18,7 +18,7 @@ module.exports = (router, database) =>
             const [results] = await con.promise().query('SELECT o.id, p.name, o.quantity, p.description, p.img, o.status FROM orders o JOIN stores s ON s.id = o.store JOIN products p ON p.id = o.product WHERE o.id = ?', [params.id]);
 
             req.session.token = uuidv4();
-            res.render('admin/home', { content: "pedidos-view", order: results[0] });
+            res.render('user/home', { content: "pedidos-view", order: results[0] });
         } catch (error) {
             console.error(error);
         } finally {
@@ -39,13 +39,10 @@ module.exports = (router, database) =>
             });
         } else { usedTokens.add(req.session.token); }
 
-        const user = auth.getUser(functions.getCookie(req, 'token'));
         const con = mysql.createConnection(database);
-        const body = req.body
 
         try {
             const [results_update] = await con.promise().query('UPDATE orders SET status = 1 WHERE id = ?', [params.id]);
-            const [results_insert] = await con.promise().query('INSERT INTO orders_logs SET ?', {order: params.id, user: user.id, newStatus: 1, comments: body.comments});
 
             res.render('user/home', { 
                 alert: {
@@ -53,7 +50,7 @@ module.exports = (router, database) =>
                     message: 'Pedido confirmado exitosamente',
                     icon: 'success',
                     time: 5000,
-                    ruta: 'user/paletizador/pedidos/'
+                    ruta: 'user/pedidos/'
                 }
             });
         } catch (error) {
@@ -65,7 +62,7 @@ module.exports = (router, database) =>
                     message: 'Server error',
                     icon: 'error',
                     time: 5000,
-                    ruta: 'user/paletizador/pedidos'
+                    ruta: 'user/pedidos'
                 }
             });
         } finally {

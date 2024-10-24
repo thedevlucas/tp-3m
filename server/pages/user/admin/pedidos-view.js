@@ -44,28 +44,29 @@ module.exports = (router, database) =>
         const body = req.body
 
         try {
-            const [results_update] = await con.promise().query('UPDATE orders SET status = 1 WHERE id = ?', [params.id]);
-            const [results_insert] = await con.promise().query('INSERT INTO orders_logs SET ?', {order: params.id, user: user.id, newStatus: 1, comments: body.comments});
+            const [results_select] = await con.promise().query('SELECT product, quantity FROM orders WHERE id = ?', [params.id]);
+            const [results_update] = await con.promise().query('UPDATE orders SET status = 2 WHERE id = ?', [params.id]);
+            const [results_update2] = await con.promise().query('UPDATE products SET quantity = quantity + ? WHERE id = ?', [results_select[0].quantity, results_select[0].product]);
 
-            res.render('user/home', { 
+            res.render('admin/home', { 
                 alert: {
                     title: 'Success',
                     message: 'Pedido confirmado exitosamente',
                     icon: 'success',
                     time: 5000,
-                    ruta: 'user/paletizador/pedidos/'
+                    ruta: 'admin/pedidos'
                 }
             });
         } catch (error) {
             console.error(error);
 
-            res.render('user/home', { 
+            res.render('admin/home', { 
                 alert: {
                     title: 'Error',
                     message: 'Server error',
                     icon: 'error',
                     time: 5000,
-                    ruta: 'user/paletizador/pedidos'
+                    ruta: 'admin/pedidos'
                 }
             });
         } finally {
