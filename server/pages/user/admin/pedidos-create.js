@@ -40,9 +40,8 @@ module.exports = (router, database) =>
         const body = req.body
 
         try {
-            const code = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
             const [results_select] = await con.promise().query('SELECT id FROM stores WHERE user = ?', [user.id]);
-            const [results_insert] = await con.promise().query('INSERT INTO orders SET ?', {store: results_select[0].id, order: body.order, code: code});
+            const [results_insert] = await con.promise().query(`INSERT INTO orders (store, product, quantity) VALUES ${body.id.map((id, index) => `(${results_select[0].id}, ${con.escape(id)}, ${con.escape(body.quantity[index])})`).join(', ')}`);
 
             res.render('admin/home', { 
                 alert: {
