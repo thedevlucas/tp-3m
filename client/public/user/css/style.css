@@ -348,6 +348,23 @@ body {
 	pointer-events: unset;
 }
 
+main form .inputs .input {
+	/* background-color: #3C91E6; */
+	text-align: center;
+}
+
+main form .inputs .input img {
+	width: 100px;
+}
+
+main form .inputs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
+
+
 #content main .box-info {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -486,15 +503,6 @@ body {
 	background: #08c5bc;
 }
 
-#content main .table-data .order .detalles form .inputs button {
-	padding: 5px 75px;
-	margin-bottom: 2%;
-	width: 250px;
-	cursor: pointer;
-} 
-
-
-
 #content main .table-data .order table tr td button {
 	border: none;
 	cursor: pointer;
@@ -549,7 +557,7 @@ main .register input, main .register select {
 	width: 250px;
 }
 
-main .register button {
+main .register .createBtn {
 	padding: 5px 75px;
 	margin-bottom: 2%;
 	width: 250px;
@@ -558,40 +566,9 @@ main .register button {
 /* MAIN */
 /* CONTENT */
 
-main .table-data .order .moreInfo {
-	display: block;
-}
 
-main .table-data .order .moreInfo .detalles {
-	margin-right: 5%;
-}
 
-main .table-data .order .moreInfo .detalles2 {
-	margin-bottom: 2%;
-}
 
-main .table-data .order .moreInfo .details {
-	display: flex;
-	margin-top: 5%;
-	margin-bottom: 2%;
-}
-	
-
-main .table-data .order .moreInfo div{
-	margin-right: 5%;
-}
-
-main .table-data .order .moreInfo button {
-	padding: 5px 75px;
-	margin-bottom: 2%;
-	width: 250px;
-	cursor: pointer;
-}
-
-.userTypes {
-	margin-top: 3.5%;
-	padding: 2%;
-}
 
 
 
@@ -662,3 +639,26 @@ main .table-data .order .moreInfo button {
 	}
 }
 
+.userTypes {
+	margin-top: 3.5%;
+	padding: 2%;
+}
+
+.moreInfo {
+	display: flex;
+}
+
+.moreInfo .detalles {
+	margin-right: 5%;
+}
+main .table-data .order .moreInfo .details{
+	display: flex;
+	width: 100%;
+}
+
+main .table-data .order .moreInfo .details div{
+	margin-right: 5%;
+	margin-top: 5%;
+	margin-bottom: 2%;
+	width: 100%;
+}
