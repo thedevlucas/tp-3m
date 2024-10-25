@@ -20,11 +20,16 @@
                     <img src="<%= x.img %>" alt="">
                     <h3><%= x.name %></h3>
                     <small><%= x.quantity %></small>
+                    <br>
+                    <% if (x.quantity <= x.min) { %>
+                        <span>BAJO STOCK</span>
+                    <% } %>
                     <div class="buttons">
                         <button class="decrease">-</button>
                         <span class="quantity"><%= x.quantity %></span>
                         <input type="number" class="id-input" style="display: none;" name="id[]" value="<%= x.id %>" disabled>
                         <input type="number" class="quantity-input" style="display: none;" name="quantity[]" value="<%= x.quantity %>" disabled>
+                        <input type="number" class="quantity-max" style="display: none;" value="<%= x.max %>" disabled>
                         <button class="increase">+</button>
                     </div>
                     <a href="/admin/products/delete/<%- x.id  %>"><i class='bx bx-trash' ></i></a>

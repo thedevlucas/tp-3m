@@ -12,7 +12,7 @@ module.exports = (router, database) =>
         const con = mysql.createConnection(database);
         
         try {
-            const [results] = await con.promise().query('SELECT p.id, p.name, p.quantity, p.description, p.img FROM products p JOIN stores s ON s.id = p.store');
+            const [results] = await con.promise().query('SELECT p.id, p.name, p.quantity, p.min, p.max, p.description, p.img FROM products p JOIN stores s ON s.id = p.store');
 
             req.session.token = uuidv4();
             res.render('admin/home', { content: "products", products: results });

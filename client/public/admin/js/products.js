@@ -4,6 +4,7 @@ inputs.forEach(e => {
     const increaseButton = e.querySelector('.increase');
     const quantitySpan = e.querySelector('.quantity');
     const quantityInput = e.querySelector('.quantity-input');
+    const quantityMax = e.querySelector('.quantity-max').value;
     const idInput = e.querySelector('.id-input');
 
     decreaseButton.addEventListener('click', function() {
@@ -19,11 +20,14 @@ inputs.forEach(e => {
 
     increaseButton.addEventListener('click', function() {
         let currentValue = parseInt(quantitySpan.textContent);
-        currentValue++;
-        quantitySpan.textContent = currentValue;
-        quantityInput.value = currentValue;
-        quantityInput.disabled = false;
-        idInput.disabled = false;
+        if (currentValue < quantityMax)
+        {
+            currentValue++;
+            quantitySpan.textContent = currentValue;
+            quantityInput.value = currentValue;
+            quantityInput.disabled = false;
+            idInput.disabled = false;
+        }
     });
 })
 

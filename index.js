@@ -63,3 +63,6 @@ app.use(function(req, res, next) {
 app.listen(app.get('port'), () => {
     console.log('Server on port', app.get('port'));
 });
+
+//set global net_buffer_length=1000000; 
+//set global max_allowed_packet=1000000000;
