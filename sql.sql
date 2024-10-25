@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `store` int(11) NOT NULL,
   `product` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
-  `date` date NOT NULL DEFAULT current_timestamp(),
+  `date` datetime NOT NULL DEFAULT current_timestamp(),
   `status` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `FK__stores` (`store`),
