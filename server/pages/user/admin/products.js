@@ -39,7 +39,7 @@ module.exports = (router, database) =>
         const body = req.body
    
         try {
-            const [results_update] = await con.promise().query(`UPDATE products SET quantity = CASE ? END WHERE id IN (?)`, [body.id.map((id, index) => `WHEN id = ${con.escape(id)} THEN ${con.escape(body.quantity[index])}`).join(' '), body.id.map(id => con.escape(id)).join(',')]);
+            const [results_update] = await con.promise().query(`UPDATE products SET quantity = CASE ${body.id.map((id, index) => `WHEN id = ${con.escape(id)} THEN ${con.escape(body.quantity[index])}`).join(' ')} END WHERE id IN (${body.id.map(id => con.escape(id)).join(',')]})`);
 
             res.render('admin/home', { 
                 alert: {
