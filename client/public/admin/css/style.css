@@ -558,13 +558,17 @@ main .register input, main .register select {
 }
 
 main .register .createBtn {
-	padding: 5px 75px;
-	margin-bottom: 2%;
-	width: 250px;
+	margin-left: 5%;
+	padding: 10px 15px;
+	background-color: none;
+	border: 1px solid black;
 	cursor: pointer;
+	transition: all .1s;
+	background: none;
+	margin-bottom: 2%;
 }
 
-main .register .updateBtn {
+main .register .createBtn {
 	margin-left: 5%;
 	padding: 10px 15px;
 	background-color: none;
