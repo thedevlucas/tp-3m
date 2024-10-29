@@ -563,6 +563,10 @@ main .register .createBtn {
 	width: 250px;
 	cursor: pointer;
 }
+
+main .register .updateBtn {
+	margin-left: 5%;
+}
 /* MAIN */
 /* CONTENT */
 
