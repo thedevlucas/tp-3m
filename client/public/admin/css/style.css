@@ -566,7 +566,19 @@ main .register .createBtn {
 
 main .register .updateBtn {
 	margin-left: 5%;
+	padding: 10px 15px;
+	background-color: none;
+	border: 1px solid white;
+	cursor: pointer;
+	transition: all .1s;
 }
+
+main .register .updateBtn:hover {
+	color: black;
+	background: white;
+}
+
+
 /* MAIN */
 /* CONTENT */
 
