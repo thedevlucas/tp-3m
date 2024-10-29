@@ -558,7 +558,6 @@ main .register input, main .register select {
 }
 
 main .register .createBtn {
-	margin-left: 5%;
 	padding: 10px 15px;
 	background-color: none;
 	border: 1px solid black;
@@ -566,22 +565,16 @@ main .register .createBtn {
 	transition: all .1s;
 	background: none;
 	margin-bottom: 2%;
+	width: 20%;
 }
 
-main .register .createBtn {
-	margin-left: 5%;
-	padding: 10px 15px;
-	background-color: none;
-	border: 1px solid black;
-	cursor: pointer;
-	transition: all .1s;
-	background: none;
-	margin-bottom: 2%;
-}
-
-main .register .updateBtn:hover {
+main .register .createBtn:hover {
 	color: white;
 	background: black;
+}
+
+.butt {
+	margin-left: 5%;
 }
 
 
