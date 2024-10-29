@@ -568,15 +568,15 @@ main .register .updateBtn {
 	margin-left: 5%;
 	padding: 10px 15px;
 	background-color: none;
-	border: 1px solid white;
+	border: 1px solid black;
 	cursor: pointer;
 	transition: all .1s;
 	background: none;
 }
 
 main .register .updateBtn:hover {
-	color: black;
-	background: white;
+	color: white;
+	background: black;
 }
 
 
