@@ -572,6 +572,7 @@ main .register .updateBtn {
 	cursor: pointer;
 	transition: all .1s;
 	background: none;
+	margin-bottom: 5%;
 }
 
 main .register .updateBtn:hover {
